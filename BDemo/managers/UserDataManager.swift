@@ -10,9 +10,15 @@ import KeychainSwift
 
 class UserDataManager: NSObject {
     static let shared = UserDataManager()
+    var rooms:[Room]?
+    
+    func getRooms() -> [Room]{
+        return self.rooms!
+    }
     let keyChain = KeychainSwift()
     override init() {
         self.keyChain.accessGroup = "UUVDK94NSQ.private.BDemo"
+        self.rooms = []
     }
     func performRegistration(username: String, pwd: String){
         self.keyChain.set(username, forKey: "username")
@@ -33,7 +39,16 @@ class UserDataManager: NSObject {
     func getUsername() -> String{
         return self.keyChain.get("username")!
     }
-    func clean() {
+    func cleanCredentials() {
         self.keyChain.clear()
+    }
+    
+    func addRoom(room: Room){
+        self.rooms?.append(room)
+    }
+    func removeRoom(room: Room){
+        self.rooms = self.rooms?.filter({ roomItem in
+            return roomItem.identifier != room.identifier
+        })
     }
 }

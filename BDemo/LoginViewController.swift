@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
         guard let userName = self.usernameField.text,
               let password = self.pwdField.text else { return }
         if (UserDataManager.shared.performLogin(username: userName, pwd: password)){
-            RouterManager.shared.goToVideoRoom()
+            RouterManager.shared.goToMainMenu()
         }else{
             print("not logged");
         }

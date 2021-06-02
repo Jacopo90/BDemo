@@ -10,7 +10,6 @@ import UIKit
 
 class RouterManager: NSObject {
     var navController: UINavigationController?;
-    var contactListController: UIViewController?;
     
     static let shared = RouterManager()
     override init() {
@@ -25,15 +24,34 @@ class RouterManager: NSObject {
         self.navController = navController;
     }
     func goToContactList(){
-        self.contactListController = self.getControllerFrom(id: "contactList");
         if let navController = self.navController {
-            navController.pushViewController(self.contactListController!, animated: true)
+            navController.pushViewController(ContactListViewController(), animated: true)
         }
     }
-    func goToVideoRoom(){
-        let videoRoomController = self.getControllerFrom(id: "videoRoom");
+    func goToVideoRoom(room: Room?, friend:FriendUser? = nil){
+        let videoRoomController: VideoRoomViewController = self.getControllerFrom(id: "videoRoom") as! VideoRoomViewController
+        videoRoomController.currentRoom = room
+        if friend != nil {
+            videoRoomController.starterFriend = friend
+        }
         if let navController = self.navController {
             navController.pushViewController(videoRoomController, animated: true)
         }
     }
+    func goToRoomsList(){
+        if let navController = self.navController {
+            navController.pushViewController(RoomsViewController(), animated: true)
+        }
+    }
+    func goToMainMenu(){
+        if let navController = self.navController {
+            navController.pushViewController(MenuController(), animated: true)
+        }
+    }
+    func exit(){
+        if let navController = self.navController {
+            navController.popToRootViewController(animated: true)
+        }
+    }
+
 }

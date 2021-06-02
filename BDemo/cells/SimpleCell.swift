@@ -1,14 +1,14 @@
 //
-//  ContactCell.swift
+//  roomCell.swift
 //  BDemo
 //
-//  Created by Jacopo Pappalettera on 30/05/21.
+//  Created by Jacopo Pappalettera on 02/06/21.
 //
 
 import Foundation
 import UIKit
 
-class ContactCell: UITableViewCell {
+class SimpleCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
 
     required init(coder aDecoder: NSCoder) {

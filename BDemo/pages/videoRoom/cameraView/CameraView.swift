@@ -20,27 +20,30 @@ class CameraView: UIView {
     var previewLayer : AVCaptureVideoPreviewLayer!
     var videoDeviceInput: AVCaptureDeviceInput!
     var setupResult: SessionSetupResult = .success
+    var friend: FriendUser?{
+        didSet {
+            self.addNameLabel()
+            }
+    }
+    private var nameLabel: UILabel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configureSession()
+       
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.configureSession()
+    }
 
+    func addNameLabel(){
+        let label = UILabel.init()
+        self.addSubview(label)
+        self.nameLabel = label
+        self.nameLabel?.text = self.friend?.name
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.updateFrames()
-    }
-    func updateFrames(landscape: Bool = false){
-        //TODO : fix landscape
-        self.previewLayer.frame = self.bounds
-    }
-    
     func configureSession(){
         session.beginConfiguration()
         session.sessionPreset = AVCaptureSession.Preset.photo
@@ -101,5 +104,19 @@ class CameraView: UIView {
     }
     func stop(){
         self.session.stopRunning()
+    }
+    
+    func updateFrames(landscape: Bool = false){
+        self.previewLayer.frame = self.bounds
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.updateFrames()
+        self.nameLabel?.frame = CGRect.init(x: (self.bounds.size.width/2)-150, y: 50, width: 300, height: 50)
+        self.nameLabel?.textColor = .white
+        self.nameLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        self.nameLabel?.textAlignment = .center
+        self.nameLabel?.backgroundColor = .lightGray
+        self.bringSubviewToFront(self.nameLabel!)
     }
 }

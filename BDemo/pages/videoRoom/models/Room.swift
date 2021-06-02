@@ -14,12 +14,20 @@ protocol RoomDelegate {
     func didRemoveStream();
 }
 class Room: NSObject{
+    var identifier: String
     var delegate: RoomDelegate?
     var friends: [FriendUser] = []
     
-    func initialize(user: Creator){
+     convenience override init() {
+        self.init(creator: nil)
+     }
+    
+     init(creator: Creator?) {
+        self.identifier = UUID().uuidString
+        super.init()
         self.reset()
     }
+   
     func end(){
         self.reset()
     }
@@ -32,7 +40,6 @@ class Room: NSObject{
         if let delegate = self.delegate {
             delegate.didConnect(friend: friend);
         }
-
     }
     func disconnect(friend: FriendUser){
         self.friends = self.friends.filter { itemFriend in

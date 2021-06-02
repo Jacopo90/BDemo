@@ -12,18 +12,22 @@ class VideoRoomViewController: UIViewController, RoomDelegate {
     @IBOutlet weak var roomView: RoomView!
     
     var currentRoom:Room?
+    var starterFriend: FriendUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUsername = UserDataManager.shared.getUsername()
-        
         if (self.currentRoom == nil) {
-            let room = Room()
+            let room = Room(creator: Creator(name: currentUsername))
+            room.delegate = self
             self.currentRoom = room
-            self.currentRoom?.initialize(user: Creator(name: currentUsername))
+            if let friend = self.starterFriend {
+                self.currentRoom?.connect(name: friend.name)
+            }
         }else{
-            self.currentRoom?.connect(name: currentUsername)
+            self.roomView.loadRoom(room: self.currentRoom!)
+            self.currentRoom!.delegate = self
         }
-        self.currentRoom?.delegate = self
     }
     
     @IBAction func addFriend(_ sender: Any) {
@@ -63,7 +67,7 @@ class VideoRoomViewController: UIViewController, RoomDelegate {
         
     }
     func didConnect(friend: FriendUser) {
-        self.roomView.addView();
+        self.roomView.addView(friend: friend);
     }
     
     func didDisconnect(friend: FriendUser) {

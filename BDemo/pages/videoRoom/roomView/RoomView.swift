@@ -18,8 +18,9 @@ class RoomView: UIView {
         super.init(coder: coder)
         self.cameraViews = []
     }
-    func addView(){
+    func addView(friend: FriendUser){
         let cameraView = CameraView()
+        cameraView.friend = friend
         cameraView.start()
         self.cameraViews?.append(cameraView)
         self.addSubview(cameraView);
@@ -34,6 +35,11 @@ class RoomView: UIView {
             self.addSubview(cameraview)
         })
         self.layoutIfNeeded()
+    }
+    func loadRoom(room: Room){
+        room.friends.forEach { friend in
+            self.addView(friend: friend)
+        }
     }
     override func layoutSubviews() {
         if let views = self.cameraViews {
