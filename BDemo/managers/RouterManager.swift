@@ -29,6 +29,11 @@ class RouterManager: NSObject {
         if let navController = self.navController {
             navController.pushViewController(self.contactListController!, animated: true)
         }
-        
+    }
+    func goToVideoRoom(){
+        let videoRoomController = self.getControllerFrom(id: "videoRoom");
+        if let navController = self.navController {
+            navController.pushViewController(videoRoomController, animated: true)
+        }
     }
 }

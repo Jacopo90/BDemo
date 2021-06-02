@@ -19,6 +19,11 @@
 		BD1E1EA82663D1FD00AB9F8C /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1E1EA72663D1FD00AB9F8C /* ContactCell.xib */; };
 		BD1E1EAA2663D20900AB9F8C /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EA92663D20900AB9F8C /* ContactCell.swift */; };
 		BD1E1EAF2663D3A300AB9F8C /* ContactsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EAE2663D3A300AB9F8C /* ContactsDataManager.swift */; };
+		BD1E1EB22667B4E000AB9F8C /* VideoRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EB12667B4E000AB9F8C /* VideoRoomViewController.swift */; };
+		BD1E1EB52667B7B000AB9F8C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EB42667B7B000AB9F8C /* CameraView.swift */; };
+		BD1E1EB92667C1CC00AB9F8C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EB82667C1CC00AB9F8C /* Room.swift */; };
+		BD1E1EBC2667C45500AB9F8C /* FriendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EBB2667C45500AB9F8C /* FriendUser.swift */; };
+		BD1E1EBE2667C50B00AB9F8C /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EBD2667C50B00AB9F8C /* Creator.swift */; };
 		E5C981369D77DAFF05C41DC7 /* Pods_BDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8C536A10816330EE972A2B /* Pods_BDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,11 +39,16 @@
 		BD1E1E9A2663ABB700AB9F8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD1E1EA02663AD7900AB9F8C /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		BD1E1EA22663AE7A00AB9F8C /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
-		BD1E1EA42663BE3300AB9F8C /* BDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BDemo.entitlements; sourceTree = "<group>"; };
 		BD1E1EA52663C2A600AB9F8C /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		BD1E1EA72663D1FD00AB9F8C /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		BD1E1EA92663D20900AB9F8C /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		BD1E1EAE2663D3A300AB9F8C /* ContactsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsDataManager.swift; sourceTree = "<group>"; };
+		BD1E1EB12667B4E000AB9F8C /* VideoRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRoomViewController.swift; sourceTree = "<group>"; };
+		BD1E1EB42667B7B000AB9F8C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		BD1E1EB62667BD0700AB9F8C /* BDemo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BDemo.entitlements; sourceTree = "<group>"; };
+		BD1E1EB82667C1CC00AB9F8C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		BD1E1EBB2667C45500AB9F8C /* FriendUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendUser.swift; sourceTree = "<group>"; };
+		BD1E1EBD2667C50B00AB9F8C /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
 		C9C5F3E1784928E0445993BC /* Pods-BDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDemo.debug.xcconfig"; path = "Target Support Files/Pods-BDemo/Pods-BDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FF9F08B62971EA3C8C69CA05 /* Pods-BDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDemo.release.xcconfig"; path = "Target Support Files/Pods-BDemo/Pods-BDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,14 +103,15 @@
 		BD1E1E8B2663ABB300AB9F8C /* BDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BD1E1EB02667B49C00AB9F8C /* videoRoom */,
 				BD1E1EAD2663D38300AB9F8C /* managers */,
 				BD1E1EAC2663D37300AB9F8C /* cells */,
 				BD1E1EAB2663D36600AB9F8C /* contacts */,
-				BD1E1EA42663BE3300AB9F8C /* BDemo.entitlements */,
 				BD1E1E8C2663ABB300AB9F8C /* AppDelegate.swift */,
 				BD1E1E8E2663ABB300AB9F8C /* SceneDelegate.swift */,
 				BD1E1E902663ABB300AB9F8C /* LoginViewController.swift */,
 				BD1E1E922663ABB300AB9F8C /* Main.storyboard */,
+				BD1E1EB62667BD0700AB9F8C /* BDemo.entitlements */,
 				BD1E1E952663ABB700AB9F8C /* Assets.xcassets */,
 				BD1E1E972663ABB700AB9F8C /* LaunchScreen.storyboard */,
 				BD1E1E9A2663ABB700AB9F8C /* Info.plist */,
@@ -133,6 +144,34 @@
 				BD1E1EAE2663D3A300AB9F8C /* ContactsDataManager.swift */,
 			);
 			path = managers;
+			sourceTree = "<group>";
+		};
+		BD1E1EB02667B49C00AB9F8C /* videoRoom */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E1EB72667C1BD00AB9F8C /* models */,
+				BD1E1EB32667B78C00AB9F8C /* cameraView */,
+				BD1E1EB12667B4E000AB9F8C /* VideoRoomViewController.swift */,
+			);
+			path = videoRoom;
+			sourceTree = "<group>";
+		};
+		BD1E1EB32667B78C00AB9F8C /* cameraView */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E1EB42667B7B000AB9F8C /* CameraView.swift */,
+			);
+			path = cameraView;
+			sourceTree = "<group>";
+		};
+		BD1E1EB72667C1BD00AB9F8C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E1EB82667C1CC00AB9F8C /* Room.swift */,
+				BD1E1EBB2667C45500AB9F8C /* FriendUser.swift */,
+				BD1E1EBD2667C50B00AB9F8C /* Creator.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,14 +289,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1E1EB22667B4E000AB9F8C /* VideoRoomViewController.swift in Sources */,
 				BD1E1EAF2663D3A300AB9F8C /* ContactsDataManager.swift in Sources */,
 				BD1E1E912663ABB300AB9F8C /* LoginViewController.swift in Sources */,
+				BD1E1EB52667B7B000AB9F8C /* CameraView.swift in Sources */,
 				BD1E1EA12663AD7900AB9F8C /* ContactListViewController.swift in Sources */,
 				BD1E1EA32663AE7A00AB9F8C /* UserDataManager.swift in Sources */,
+				BD1E1EBE2667C50B00AB9F8C /* Creator.swift in Sources */,
+				BD1E1EBC2667C45500AB9F8C /* FriendUser.swift in Sources */,
 				BD1E1E8D2663ABB300AB9F8C /* AppDelegate.swift in Sources */,
 				BD1E1EA62663C2A600AB9F8C /* RouterManager.swift in Sources */,
 				BD1E1EAA2663D20900AB9F8C /* ContactCell.swift in Sources */,
 				BD1E1E8F2663ABB300AB9F8C /* SceneDelegate.swift in Sources */,
+				BD1E1EB92667C1CC00AB9F8C /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +450,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BDemo/BDemo.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = UUVDK94NSQ;
 				INFOPLIST_FILE = BDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -415,6 +460,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = private.BDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = BDemo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -427,7 +473,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BDemo/BDemo.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = UUVDK94NSQ;
 				INFOPLIST_FILE = BDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -436,6 +483,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = private.BDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = BDemo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
