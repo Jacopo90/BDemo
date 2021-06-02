@@ -24,6 +24,7 @@
 		BD1E1EB92667C1CC00AB9F8C /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EB82667C1CC00AB9F8C /* Room.swift */; };
 		BD1E1EBC2667C45500AB9F8C /* FriendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EBB2667C45500AB9F8C /* FriendUser.swift */; };
 		BD1E1EBE2667C50B00AB9F8C /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EBD2667C50B00AB9F8C /* Creator.swift */; };
+		BD1E1EC02667D04B00AB9F8C /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E1EBF2667D04B00AB9F8C /* RoomView.swift */; };
 		E5C981369D77DAFF05C41DC7 /* Pods_BDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8C536A10816330EE972A2B /* Pods_BDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		BD1E1EB82667C1CC00AB9F8C /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		BD1E1EBB2667C45500AB9F8C /* FriendUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendUser.swift; sourceTree = "<group>"; };
 		BD1E1EBD2667C50B00AB9F8C /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
+		BD1E1EBF2667D04B00AB9F8C /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		C9C5F3E1784928E0445993BC /* Pods-BDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDemo.debug.xcconfig"; path = "Target Support Files/Pods-BDemo/Pods-BDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FF9F08B62971EA3C8C69CA05 /* Pods-BDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDemo.release.xcconfig"; path = "Target Support Files/Pods-BDemo/Pods-BDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 		BD1E1EB02667B49C00AB9F8C /* videoRoom */ = {
 			isa = PBXGroup;
 			children = (
+				BD1E1EC12667D05000AB9F8C /* roomView */,
 				BD1E1EB72667C1BD00AB9F8C /* models */,
 				BD1E1EB32667B78C00AB9F8C /* cameraView */,
 				BD1E1EB12667B4E000AB9F8C /* VideoRoomViewController.swift */,
@@ -172,6 +175,14 @@
 				BD1E1EBD2667C50B00AB9F8C /* Creator.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		BD1E1EC12667D05000AB9F8C /* roomView */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E1EBF2667D04B00AB9F8C /* RoomView.swift */,
+			);
+			path = roomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 				BD1E1EB22667B4E000AB9F8C /* VideoRoomViewController.swift in Sources */,
 				BD1E1EAF2663D3A300AB9F8C /* ContactsDataManager.swift in Sources */,
 				BD1E1E912663ABB300AB9F8C /* LoginViewController.swift in Sources */,
+				BD1E1EC02667D04B00AB9F8C /* RoomView.swift in Sources */,
 				BD1E1EB52667B7B000AB9F8C /* CameraView.swift in Sources */,
 				BD1E1EA12663AD7900AB9F8C /* ContactListViewController.swift in Sources */,
 				BD1E1EA32663AE7A00AB9F8C /* UserDataManager.swift in Sources */,

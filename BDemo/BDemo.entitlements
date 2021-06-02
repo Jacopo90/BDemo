@@ -4,7 +4,7 @@
 <dict>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)private.BDemo</string>
+		<string>$(AppIdentifierPrefix)group.BDemo</string>
 	</array>
 </dict>
 </plist>

@@ -32,8 +32,9 @@ class Room: NSObject{
         if let delegate = self.delegate {
             delegate.didConnect(friend: friend);
         }
+
     }
-    func disconnnect(friend: FriendUser){
+    func disconnect(friend: FriendUser){
         self.friends = self.friends.filter { itemFriend in
             return itemFriend.name != friend.name
         }

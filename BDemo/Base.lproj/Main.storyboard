@@ -115,19 +115,37 @@
                                             <action selector="microphone:" destination="mYJ-oh-aGL" eventType="touchUpInside" id="cby-rW-XF2"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpc-2Q-ve8">
+                                        <rect key="frame" x="348" y="73" width="30" height="30"/>
+                                        <state key="normal" title="add"/>
+                                        <connections>
+                                            <action selector="addFriend:" destination="mYJ-oh-aGL" eventType="touchUpInside" id="OqK-8l-LT8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWh-km-jVa">
+                                        <rect key="frame" x="27" y="73" width="51" height="30"/>
+                                        <state key="normal" title="remove"/>
+                                        <connections>
+                                            <action selector="removeFriend:" destination="mYJ-oh-aGL" eventType="touchUpInside" id="bSB-kh-V6Z"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="1u4-RC-cNZ"/>
                                     <constraint firstAttribute="bottom" secondItem="gNM-uW-w1K" secondAttribute="bottom" constant="63" id="DMd-WK-Xcu"/>
                                     <constraint firstItem="pnM-PS-EUB" firstAttribute="centerX" secondItem="ZBd-tD-n23" secondAttribute="centerX" id="OAb-Xq-gLP"/>
+                                    <constraint firstAttribute="bottom" secondItem="KWh-km-jVa" secondAttribute="bottom" constant="25" id="Sz6-Sl-DWO"/>
                                     <constraint firstAttribute="bottom" secondItem="pnM-PS-EUB" secondAttribute="bottom" constant="63" id="ixW-hD-PHZ"/>
                                     <constraint firstAttribute="bottom" secondItem="mIj-hv-RIR" secondAttribute="bottom" constant="63" id="jYr-LY-zgB"/>
                                     <constraint firstAttribute="trailing" secondItem="gNM-uW-w1K" secondAttribute="trailing" constant="44" id="om3-28-DDW"/>
+                                    <constraint firstAttribute="trailing" secondItem="qpc-2Q-ve8" secondAttribute="trailing" constant="36" id="rPa-OP-pk1"/>
+                                    <constraint firstItem="KWh-km-jVa" firstAttribute="leading" secondItem="ZBd-tD-n23" secondAttribute="leading" constant="27" id="tnM-BG-nyM"/>
+                                    <constraint firstAttribute="bottom" secondItem="qpc-2Q-ve8" secondAttribute="bottom" constant="25" id="uui-jU-njT"/>
                                     <constraint firstItem="mIj-hv-RIR" firstAttribute="leading" secondItem="ZBd-tD-n23" secondAttribute="leading" constant="27" id="wAF-xP-MFq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXv-sJ-nzz" customClass="CameraView" customModule="BDemo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXv-sJ-nzz" customClass="RoomView" customModule="BDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="767"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                             </view>
@@ -145,7 +163,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraView" destination="dXv-sJ-nzz" id="Ll1-mh-iTD"/>
+                        <outlet property="roomView" destination="dXv-sJ-nzz" id="o0G-zk-zcj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydV-Ed-89P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -34,6 +34,11 @@ class CameraView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.updateFrames()
+    }
+    func updateFrames(landscape: Bool = false){
+        //TODO : fix landscape
+        self.previewLayer.frame = self.bounds
     }
     
     func configureSession(){
@@ -48,16 +53,12 @@ class CameraView: UIView {
             } else {
                 dualCameraDeviceType = .builtInDuoCamera
             }
-            if let dualCameraDevice = AVCaptureDevice.default(dualCameraDeviceType, for: AVMediaType.video, position: .back) {
+            if let dualCameraDevice = AVCaptureDevice.default(dualCameraDeviceType, for: AVMediaType.video, position: .front) {
                 defaultVideoDevice = dualCameraDevice
             } else if let backCameraDevice = AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: AVMediaType.video, position: .back) {
                 // If the back dual camera is not available, default to the back wide angle camera.
                 defaultVideoDevice = backCameraDevice
             } else if let frontCameraDevice = AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: AVMediaType.video, position: .front) {
-                /*
-                 In some cases where users break their phones, the back wide angle camera is not available.
-                 In this case, we should default to the front wide angle camera.
-                 */
                 defaultVideoDevice = frontCameraDevice
             }
             let videoDeviceInput = try AVCaptureDeviceInput(device: defaultVideoDevice!)
@@ -97,5 +98,8 @@ class CameraView: UIView {
         self.previewLayer.frame = self.bounds
         self.layer.addSublayer(self.previewLayer)
         self.session.startRunning()
+    }
+    func stop(){
+        self.session.stopRunning()
     }
 }
