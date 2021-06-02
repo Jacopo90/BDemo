@@ -53,5 +53,10 @@ class RouterManager: NSObject {
             navController.popToRootViewController(animated: true)
         }
     }
+    func pop(){
+        if let navController = self.navController {
+            navController.popViewController(animated: true)
+        }
+    }
 
 }

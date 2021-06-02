@@ -20,7 +20,7 @@ class RoomView: UIView {
     }
     func addView(friend: FriendUser){
         let cameraView = CameraView()
-        cameraView.friend = friend
+        cameraView.user = friend
         cameraView.start()
         self.cameraViews?.append(cameraView)
         self.addSubview(cameraView);
@@ -37,6 +37,10 @@ class RoomView: UIView {
         self.layoutIfNeeded()
     }
     func loadRoom(room: Room){
+        self.cameraViews?.removeAll()
+        self.subviews.forEach { view in
+            view.removeFromSuperview()
+        }
         room.friends.forEach { friend in
             self.addView(friend: friend)
         }

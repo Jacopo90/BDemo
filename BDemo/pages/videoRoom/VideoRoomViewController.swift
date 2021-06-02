@@ -10,24 +10,25 @@ import UIKit
 
 class VideoRoomViewController: UIViewController, RoomDelegate {
     @IBOutlet weak var roomView: RoomView!
+    @IBOutlet weak var meView: CameraView!
     
     var currentRoom:Room?
     var starterFriend: FriendUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let currentUsername = UserDataManager.shared.getUsername()
-        if (self.currentRoom == nil) {
-            let room = Room(creator: Creator(name: currentUsername))
+        if let room = self.currentRoom {
             room.delegate = self
-            self.currentRoom = room
             if let friend = self.starterFriend {
-                self.currentRoom?.connect(name: friend.name)
+                room.connect(name: friend.name)
             }
-        }else{
-            self.roomView.loadRoom(room: self.currentRoom!)
-            self.currentRoom!.delegate = self
+            self.roomView.loadRoom(room: room)
         }
+        if let meView = self.meView {
+            meView.user = self.currentRoom?.creator
+            meView.start()
+        }
+        
     }
     
     @IBAction func addFriend(_ sender: Any) {
@@ -35,7 +36,9 @@ class VideoRoomViewController: UIViewController, RoomDelegate {
         self.currentRoom?.connect(name: friend0)
     }
     @IBAction func removeFriend(_ sender: Any) {
-        self.currentRoom?.disconnect(friend: (self.currentRoom?.friends.last)!)
+        if let last = self.currentRoom?.friends.last {
+            self.currentRoom?.forceDisconnect(friend: last)
+        }
     }
     
     
@@ -46,7 +49,15 @@ class VideoRoomViewController: UIViewController, RoomDelegate {
         
     }
     @IBAction func end(_ sender: Any) {
-        
+        self.currentRoom?.exit()
+    }
+    @IBAction func simulateEnd(_ sender: Any) {
+        self.currentRoom?.simulateEnd()
+    }
+    @IBAction func simulateExitLast(_ sender: Any) {
+        if let last = self.currentRoom?.friends.last {
+            last.delegate?.exit(user: last)
+        }
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
          super.viewWillTransition(to: size, with: coordinator)
@@ -64,7 +75,10 @@ class VideoRoomViewController: UIViewController, RoomDelegate {
         
     }
     func didRemoveStream() {
-        
+        RouterManager.shared.pop()
+    }
+    func simulatedidRemoveStream() {
+        self.meView.removeFromSuperview()
     }
     func didConnect(friend: FriendUser) {
         self.roomView.addView(friend: friend);

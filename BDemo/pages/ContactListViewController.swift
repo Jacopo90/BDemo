@@ -18,6 +18,8 @@ class ContactListViewController: ListController<CNContact>{
     }
     override func selectAction(item: CNContact) {
         let name = item.givenName + " " +  item.familyName
-        RouterManager.shared.goToVideoRoom(room: nil, friend: FriendUser(name:name))
+        let currentUsername = UserDataManager.shared.getUsername()
+        let room = Room(creator: Creator(name: currentUsername))
+        RouterManager.shared.goToVideoRoom(room: room, friend: FriendUser(name:name))
     }
 }
