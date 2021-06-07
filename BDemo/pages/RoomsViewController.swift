@@ -18,10 +18,11 @@ class RoomsViewController: ListController<Room>{
         self.navigationItem.rightBarButtonItems = [add]
     }
     @objc func createRoom(){
-        let currentUsername = UserDataManager.shared.getUsername()
-        let room = Room(creator: Creator(name: currentUsername))
-        UserDataManager.shared.addRoom(room: room)
-        self.reload()
+        if let currentUsername = UserDataManager.shared.getUsername(){
+            let room = Room(creator: Creator(name: currentUsername))
+            UserDataManager.shared.addRoom(room: room)
+            self.reload()
+        }      
     }
     override func retrieveItems() -> [Room]? {
         return UserDataManager.shared.getRooms()

@@ -11,11 +11,13 @@ protocol FriendUserDelegate {
     func exit(user: FriendUser)
 }
 class FriendUser: NSObject {
+    var identifier: String
     var name: String
     var hasAudio: Bool
     var hasVideo: Bool
     var delegate: FriendUserDelegate?
      init(name: String) {
+        self.identifier = UUID().uuidString
         self.name = name
         self.hasAudio = true;
         self.hasVideo = true;

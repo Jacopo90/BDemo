@@ -78,7 +78,9 @@ class VideoRoomViewController: UIViewController, RoomDelegate {
         RouterManager.shared.pop()
     }
     func simulatedidRemoveStream() {
-        self.meView.removeFromSuperview()
+        if let view = self.meView {
+            view.removeFromSuperview()
+        }
     }
     func didConnect(friend: FriendUser) {
         self.roomView.addView(friend: friend);

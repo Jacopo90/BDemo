@@ -29,13 +29,18 @@ class CameraView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configureSession()
-       
+        #if targetEnvironment(simulator)
+        #else
+                self.configureSession()
+        #endif
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.configureSession()
+        #if targetEnvironment(simulator)
+        #else
+                self.configureSession()
+        #endif
     }
 
     func addNameLabel(){
@@ -97,13 +102,21 @@ class CameraView: UIView {
         session.commitConfiguration()
     }
     func start(){
+        #if targetEnvironment(simulator)
+        #else
         self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
         self.previewLayer.frame = self.bounds
         self.layer.addSublayer(self.previewLayer)
         self.session.startRunning()
+        #endif
+    
     }
     func stop(){
+        #if targetEnvironment(simulator)
+        #else
         self.session.stopRunning()
+
+        #endif
     }
     
     func updateFrames(landscape: Bool = false){

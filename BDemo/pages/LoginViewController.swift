@@ -27,9 +27,6 @@ class LoginViewController: UIViewController {
         }
     }
     @IBAction func registerAction(_ sender: Any) {
-       /* guard let userName = self.userNameTextField.text,
-              let password = self.passwordTextField.text else { return }*/
-
         UserDataManager.shared.performRegistration(username: "pippo", pwd: "123")
     }
 }

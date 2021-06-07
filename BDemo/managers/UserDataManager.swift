@@ -36,8 +36,11 @@ class UserDataManager: NSObject {
         return false;
     }
     
-    func getUsername() -> String{
-        return self.keyChain.get("username")!
+    func getUsername() -> String?{
+        return self.keyChain.get("username")
+    }
+    func getPwd() -> String?{
+        return self.keyChain.get("password")
     }
     func cleanCredentials() {
         self.keyChain.clear()
